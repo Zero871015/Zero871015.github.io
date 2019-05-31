@@ -26,7 +26,8 @@ var articles = [
 function MakeList()
 {
 	for (var i = 0; i < articles.length; i++) {
-		document.write("<li>\n");
+		if(i==0) document.write("<li>\n");
+		else document.write("<li>\n");
 
 		document.write("<p class=\"date\"><a href=\"#\">");
 		document.write(articles[i].year);
