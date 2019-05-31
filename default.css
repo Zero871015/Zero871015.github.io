@@ -373,6 +373,39 @@
 		font-size: 1.3em;
 		color: #6F6F6F;
 	}
+
+/*********************************************************************************/
+/* Careers                                                              */
+/*********************************************************************************/
+
+	#careers ul
+	{
+		text-align: left;
+	}
+
+	#careers li
+	{
+		text-align: left;
+		margin-bottom: 1em;
+	}
+
+	#careers h2
+	{
+		color: #6F6F6F;
+	}
+
+	#careers p
+	{
+		margin-left: 2em;
+		margin-bottom: 0em;
+		font-size: 22px;
+		color: #000000;
+	}
+
+	#careers b
+	{
+		color: #F55555;
+	}
 		
 /*********************************************************************************/
 /* Header                                                                        */
