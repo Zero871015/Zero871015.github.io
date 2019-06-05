@@ -1,6 +1,20 @@
 var articles = [
 	{
 		year		: 2019,
+		date 		: "0606",
+		title       : "Tutorial of Git",
+		title_HTML	: "https://hackmd.io/@9_2mZMiuQ06vx4k6cFgQ1A/B1L8ekB0N",
+		text		: "GitHub和Git Bash的使用教學，蠻廢的</br>\
+					Tutorial of GitHub and Git. A little suck."
+	},{
+		year		: 2019,
+		date 		: "0605",
+		title       : "【Engineering Mathematics】 Ordinary Differential Equations",
+		title_HTML	: "https://hackmd.io/uPakrfVySLaD4bHzLzwsCw",
+		text		: "一階微分方程筆記</br>\
+					Note of ODE."
+	},{
+		year		: 2019,
 		date 		: "0530",
 		title       : "【Hardware security】 Meltdown and Spectre",
 		title_HTML	: "https://hackmd.io/s/rkbb3Ua6N",
