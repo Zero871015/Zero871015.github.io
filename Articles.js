@@ -1,6 +1,13 @@
 var articles = [
 	{
 		year		: 2019,
+		date 		: "0608",
+		title       : "FFT and IFFT",
+		title_HTML	: "https://hackmd.io/@Zero871015/FFT",
+		text		: "圖像快速傅立葉轉換和反快速傅立葉的練習</br>\
+					Practice FFT and IFFT on image."
+	},{
+		year		: 2019,
 		date 		: "0606",
 		title       : "Tutorial of Git",
 		title_HTML	: "https://hackmd.io/@9_2mZMiuQ06vx4k6cFgQ1A/B1L8ekB0N",
