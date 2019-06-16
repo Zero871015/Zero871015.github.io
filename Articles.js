@@ -10,7 +10,7 @@ var articles = [
 		year		: 2019,
 		date 		: "0605",
 		title       : "【Engineering Mathematics】 Ordinary Differential Equations",
-		title_HTML	: "https://hackmd.io/uPakrfVySLaD4bHzLzwsCw",
+		title_HTML	: "https://hackmd.io/@Zero871015/ODE-Note",
 		text		: "一階微分方程筆記</br>\
 					Note of ODE."
 	},{
@@ -24,7 +24,7 @@ var articles = [
 		year		: 2019,
 		date 		: "0428",
 		title       : "LeetCode problem solving",
-		title_HTML	: "https://hackmd.io/s/Bk9rcmQjE",
+		title_HTML	: "https://hackmd.io/@Zero871015/LeetCode",
 		text		: "Leet code的解題心得，包含Code和核心概念講解。陸續更新中(理論上</br>\
 					LeetCode problem solving, including code and key concept. Keep updating, theoretically..."
 	},{
