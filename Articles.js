@@ -38,7 +38,7 @@ var articles = [
 		year		: 2018,
 		date 		: "1223",
 		title       : "Data structure note",
-		title_HTML	: "https://hackmd.io/BRjtSNXdR8O7G9xRf6Keuw",
+		title_HTML	: "https://hackmd.io/@Zero871015/DSNote",
 		text		: "資料結構筆記。意外地挺熱門的</br>\
 					My data structure note. I did't expect that it will so popular."
 	},
