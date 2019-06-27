@@ -10,7 +10,7 @@ var articles = [
 		year		: 2019,
 		date 		: "0606",
 		title       : "Tutorial of Git",
-		title_HTML	: "https://hackmd.io/@9_2mZMiuQ06vx4k6cFgQ1A/B1L8ekB0N",
+		title_HTML	: "https://hackmd.io/@Zero871015/GitTutorial",
 		text		: "GitHub和Git Bash的使用教學，蠻廢的</br>\
 					Tutorial of GitHub and Git. A little suck."
 	},{
@@ -36,7 +36,7 @@ var articles = [
 					LeetCode problem solving, including code and key concept. Keep updating, theoretically..."
 	},{
 		year		: 2018,
-		date 		: "1223",
+		date 		: "1017",
 		title       : "Data structure note",
 		title_HTML	: "https://hackmd.io/@Zero871015/DSNote",
 		text		: "資料結構筆記。意外地挺熱門的</br>\
