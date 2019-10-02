@@ -7,7 +7,6 @@ var articles = [
 		text		: "資料前處理和線性回歸之類的</br>\
 					Data preprocessing and LR."
 	},{
-	{
 		year		: 2019,
 		date 		: "0928",
 		title       : "ML/DL #1",
@@ -15,7 +14,6 @@ var articles = [
 		text		: "新出茅蘆的機器學習勇者</br>\
 					Rookie is me."
 	},{
-	{
 		year		: 2019,
 		date 		: "0912",
 		title       : "Programming Languages",
@@ -23,7 +21,6 @@ var articles = [
 		text		: "程式語言的筆記，雖然寫了#1但應該不會有後面了，因為有夠無聊</br>\
 					Note of programming languages class. written \"#1\" but no sequel because that is so bored."
 	},{
-	{
 		year		: 2019,
 		date 		: "0608",
 		title       : "FFT and IFFT",
