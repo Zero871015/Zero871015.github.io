@@ -1,7 +1,14 @@
 var articles = [
 	{
 		year		: 2019,
-		date 		: "0928",
+		date 		: "1004",
+		title       : "Information Security #1",
+		title_HTML	: "https://hackmd.io/@Zero871015/ISNote-1",
+		text		: "資安第一招－－對稱式加密</br>\
+					Classical encryption."
+	},{
+		year		: 2019,
+		date 		: "1003",
 		title       : "ML/DL #2",
 		title_HTML	: "https://hackmd.io/@Zero871015/pythonNote-2",
 		text		: "資料前處理和線性回歸之類的</br>\
@@ -61,7 +68,7 @@ var articles = [
 		title       : "Data structure note",
 		title_HTML	: "https://hackmd.io/@Zero871015/DSNote",
 		text		: "資料結構筆記。意外地挺熱門的</br>\
-					My data structure note. I did't expect that it will so popular."
+					My data structure note. I did't expect that it will be so popular."
 	},
 ];
 
