@@ -1,6 +1,13 @@
 var articles = [
 	{
 		year		: 2019,
+		date 		: "1024",
+		title       : "Information Security #2",
+		title_HTML	: "https://hackmd.io/@Zero871015/ISNote-2",
+		text		: "資安第二招－－DES加密法</br>\
+					DES!"
+	},{
+		year		: 2019,
 		date 		: "1004",
 		title       : "Information Security #1",
 		title_HTML	: "https://hackmd.io/@Zero871015/ISNote-1",
