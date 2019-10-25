@@ -2,49 +2,46 @@
 <head>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
-    google.charts.load('current', {'packages':['gantt']});
-    google.charts.setOnLoadCallback(drawChart);
 
-    function daysToMilliseconds(days) {
+  	var wrapper;
+  	var data;
+  	function daysToMilliseconds(days) {
       return days * 24 * 60 * 60 * 1000;
     }
 
-    function drawChart() {
+  	function Init()
+  	{
+  		wrapper = new google.visualization.ChartWrapper({
+	    chartType: 'Gantt',
+	    dataTable: [['Task ID', 'Task Name', 'Start Date','End Date', 'Duration','Percent Complete','Dependencies'],
+	                ['Research', 'Find sources', new Date(2015, 0, 1),new Date(2015, 0, 5), daysToMilliseconds(4),  100,  null]],
+	    options: {'height': '275'},
+	    containerId: 'visualization'
+	  	});
+  	}
 
-      var data = new google.visualization.DataTable();
-      data.addColumn('string', 'Task ID');
-      data.addColumn('string', 'Task Name');
-      data.addColumn('string', 'Resource');
-      data.addColumn('date', 'Start Date');
-      data.addColumn('date', 'End Date');
-      data.addColumn('number', 'Duration');
-      data.addColumn('number', 'Percent Complete');
-      data.addColumn('string', 'Dependencies');
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(Init);
 
-      data.addRows([
-        ['Research', 'Find sources', null,
-         new Date(2015, 0, 1), new Date(2015, 0, 5), null,  100,  null],
-        ['Write', 'Write paper', 'write',
-         null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Outline'],
-        ['Cite', 'Create bibliography', 'write',
-         null, new Date(2015, 0, 7), daysToMilliseconds(1), 20, 'Research'],
-        ['Complete', 'Hand in paper', 'complete',
-         null, new Date(2015, 0, 10), daysToMilliseconds(1), 0, 'Cite,Write'],
-        ['Outline', 'Outline paper', 'write',
-         null, new Date(2015, 0, 6), daysToMilliseconds(1), 100, 'Research']
-      ]);
+   	function Test_Draw()
+   	{
+   		data = wrapper.getDataTable();
+   		//console.log(data.toJSON());
 
-      var options = {
-        height: 275
-      };
+   		wrapper.draw(chart_div);
+   	}
 
-      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+   	function Test_Add()
+   	{
+   		data.addRow(['Write', 'Write paper',
+         null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Research']);
+   	}
 
-      chart.draw(data, options);
-    }
   </script>
 </head>
 <body>
   <div id="chart_div"></div>
+  <button onclick="Test_Draw()">Test_Draw</button>
+  <button onclick="Test_Add()">Test_Add</button>
 </body>
 </html>
