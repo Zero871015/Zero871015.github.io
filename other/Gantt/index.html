@@ -5,12 +5,17 @@
 
   	var wrapper;
   	var data;
+
+  	//Convert day to milliseconds.
   	function daysToMilliseconds(days) {
       return days * 24 * 60 * 60 * 1000;
     }
 
+  	//Initialize objects and setting.
   	function Init()
   	{
+  		// Initialize ChartWrapper.
+  		// Problem: DataTable can NOT only have first column data. That say gantt chart can NOT be empty when loading...
   		wrapper = new google.visualization.ChartWrapper({
 	    chartType: 'Gantt',
 	    dataTable: [['Task ID', 'Task Name', 'Start Date','End Date', 'Duration','Percent Complete','Dependencies'],
@@ -18,23 +23,41 @@
 	    options: {'height': '275'},
 	    containerId: 'visualization'
 	  	});
+
+  		// Show gantt chart on browser.
+   		wrapper.draw(chart_div);
+   		// Link the select(click) event.
+   		google.visualization.events.addListener(wrapper, 'select', selectHandler);
+
+		data = wrapper.getDataTable();
   	}
 
+  	// Load resource from google chart
     google.charts.load('current', {'packages':['gantt']});
     google.charts.setOnLoadCallback(Init);
 
+    // Update the chart.
    	function Test_Draw()
    	{
    		data = wrapper.getDataTable();
    		//console.log(data.toJSON());
-
    		wrapper.draw(chart_div);
    	}
 
+   	// Test for add row(new task).
    	function Test_Add()
    	{
    		data.addRow(['Write', 'Write paper',
          null, new Date(2015, 0, 9), daysToMilliseconds(3), 25, 'Research,Research']);
+   	}
+	
+	// Trigger a select event.
+   	function selectHandler()
+   	{
+   		var selection = wrapper.getChart().getSelection();
+	  	if(selection.length == 0) return;
+	   	for(var i=0;i<7;i++)
+	   		console.log(data.getValue(selection[0].row,i));
    	}
 
   </script>
