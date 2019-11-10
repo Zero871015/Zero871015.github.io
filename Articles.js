@@ -1,6 +1,13 @@
 var articles = [
 	{
 		year		: 2019,
+		date 		: "1110",
+		title       : "OS Note",
+		title_HTML	: "https://hackmd.io/@Zero871015/OS-Note",
+		text		: "作業系統筆記，內容可能和研所考試比起來少了一點</br>\
+					Note of operation system."
+	},{
+		year		: 2019,
 		date 		: "1024",
 		title       : "Information Security #2",
 		title_HTML	: "https://hackmd.io/@Zero871015/ISNote-2",
