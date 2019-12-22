@@ -38,7 +38,6 @@ google.charts.setOnLoadCallback(Init);
 function Test_Draw()
 {
 	data = wrapper.getDataTable();
-	//console.log(data.toJSON());
 	wrapper.draw(chart_div);
 }
 
@@ -101,3 +100,36 @@ function DeleteTask()
   }
   Test_Draw();
 }
+
+function ModifyTask()
+{
+  DeleteTask();
+  data = wrapper.getDataTable();
+
+  taskName = document.getElementById("taskName2").value;
+  startDay = new Date(document.getElementById("startDay2").value);
+  endDay = new Date(document.getElementById("endDay2").value);
+  duration = document.getElementById("duration2").value;
+  percentComplete = +document.getElementById("percentComplete2").value;
+
+
+  data.addRow([taskName, taskName,
+  startDay, endDay, daysToMilliseconds(duration), percentComplete, null]);
+  Test_Draw();
+}
+
+function DownloadData()
+{
+  console.log(data.toJSON());
+  downloadObjectAsJson(data.toJSON(),"test");
+}
+
+function downloadObjectAsJson(exportObj, exportName){
+    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", exportName + ".json");
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+  }
