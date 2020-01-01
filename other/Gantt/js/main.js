@@ -17,7 +17,7 @@ function Init()
 	wrapper = new google.visualization.ChartWrapper({
   chartType: 'Gantt',
   dataTable: [['Task ID', 'Task Name', 'Start Date','End Date', 'Duration','Percent Complete','Dependencies'],
-              ['Research', 'Research', new Date(2019, 0, 1),new Date(2019, 0, 5), daysToMilliseconds(4),  100,  null]],
+              ['EXAMPLE', 'EXAMPLE', new Date(2019, 0, 1),new Date(2019, 0, 5), daysToMilliseconds(4),  100,  null]],
   options: {'height': '275'},
   containerId: 'visualization'
 	});
@@ -37,6 +37,15 @@ google.charts.setOnLoadCallback(Init);
 // Update the chart.
 function Test_Draw()
 {
+  data = wrapper.getDataTable();
+  for(var i = 0; i < data.getNumberOfRows(); i++)
+  {
+    if("EXAMPLE" === data.getValue(i,0))
+    {
+      data.removeRow(i);
+    }
+    //console.log(data.getValue(i,0));
+  }
 	data = wrapper.getDataTable();
 	wrapper.draw(chart_div);
 }
@@ -138,30 +147,30 @@ function ModifyTask()
   data = wrapper.getDataTable();
 
   //Get all text data.
-  if(document.getElementById("taskName").value == "")
+  if(document.getElementById("taskName2").value == "")
     taskName = null;
   else
-    taskName = document.getElementById("taskName").value;
-  if(document.getElementById("startDay").value == "")
+    taskName = document.getElementById("taskName2").value;
+  if(document.getElementById("startDay2").value == "")
     startDay = null;
   else
-    startDay = new Date(document.getElementById("startDay").value);
-  if(document.getElementById("endDay").value == "")
+    startDay = new Date(document.getElementById("startDay2").value);
+  if(document.getElementById("endDay2").value == "")
     endDay = null;
   else
-    endDay = new Date(document.getElementById("endDay").value);
-  if(document.getElementById("duration").value == "")
+    endDay = new Date(document.getElementById("endDay2").value);
+  if(document.getElementById("duration2").value == "")
     duration = null;
   else
-    duration = document.getElementById("duration").value;
-  if(document.getElementById("percentComplete").value == "")
+    duration = document.getElementById("duration2").value;
+  if(document.getElementById("percentComplete2").value == "")
     percentComplete = 0;
   else
-    percentComplete = +document.getElementById("percentComplete").value;
-  if(document.getElementById("dependencies").value == "")
+    percentComplete = +document.getElementById("percentComplete2").value;
+  if(document.getElementById("dependencies2").value == "")
     dependencies = null;
   else
-    dependencies = document.getElementById("dependencies").value;
+    dependencies = document.getElementById("dependencies2").value;
   //TODO: Check data table if there any task has same name.
 
   data.addRow([taskName, taskName,
