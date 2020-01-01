@@ -47,16 +47,34 @@ function AddTask()
   data = wrapper.getDataTable();
 
   //Get all text data.
-	taskName = document.getElementById("taskName").value;
-	startDay = new Date(document.getElementById("startDay").value);
-	endDay = new Date(document.getElementById("endDay").value);
-	duration = document.getElementById("duration").value;
-	percentComplete = +document.getElementById("percentComplete").value;
-
+  if(document.getElementById("taskName").value == "")
+    taskName = null;
+  else
+  	taskName = document.getElementById("taskName").value;
+  if(document.getElementById("startDay").value == "")
+    startDay = null;
+  else
+  	startDay = new Date(document.getElementById("startDay").value);
+  if(document.getElementById("endDay").value == "")
+    endDay = null;
+  else
+  	endDay = new Date(document.getElementById("endDay").value);
+  if(document.getElementById("duration").value == "")
+    duration = null;
+  else
+  	duration = document.getElementById("duration").value;
+  if(document.getElementById("percentComplete").value == "")
+    percentComplete = 0;
+  else
+  	percentComplete = +document.getElementById("percentComplete").value;
+  if(document.getElementById("dependencies").value == "")
+    dependencies = null;
+  else
+    dependencies = document.getElementById("dependencies").value;
 	//TODO: Check data table if there any task has same name.
 
 	data.addRow([taskName, taskName,
-  startDay, endDay, daysToMilliseconds(duration), percentComplete, null]);
+  startDay, endDay, daysToMilliseconds(duration), percentComplete, dependencies]);
 	Test_Draw();
 }
 
@@ -73,14 +91,27 @@ function selectHandler()
       document.getElementById("taskName2").value = data.getValue(selection[0].row,i);
     }
     else if(i == 2)
-      document.getElementById("startDay2").value = new Date(Date.parse(data.getValue(selection[0].row,i))).toISOString().substr(0, 10);
+    {
+      temp = data.getValue(selection[0].row,i);
+      if(temp == null)
+        document.getElementById("startDay2").value = "";
+      else
+        document.getElementById("startDay2").value = new Date(Date.parse(temp)).toISOString().substr(0, 10);
+    }
     else if(i == 3)
-      document.getElementById("endDay2").value = new Date(Date.parse(data.getValue(selection[0].row,i))).toISOString().substr(0, 10);
+    {
+      temp = data.getValue(selection[0].row,i);
+      if(temp == null)
+        document.getElementById("endDay2").value = "";
+      else
+        document.getElementById("endDay2").value = new Date(Date.parse(temp)).toISOString().substr(0, 10);
+    }
     else if(i == 4)
       document.getElementById("duration2").value = millisecondsToDays(data.getValue(selection[0].row,i));
     else if(i == 5)
       document.getElementById("percentComplete2").value = data.getValue(selection[0].row,i);
-
+    else if(i == 6)
+      document.getElementById("dependencies2").value = data.getValue(selection[0].row,i);
  		//console.log(data.getValue(selection[0].row,i));
 
  		//console.log(typeof(data.getValue(selection[0].row,i)));
@@ -106,15 +137,35 @@ function ModifyTask()
   DeleteTask();
   data = wrapper.getDataTable();
 
-  taskName = document.getElementById("taskName2").value;
-  startDay = new Date(document.getElementById("startDay2").value);
-  endDay = new Date(document.getElementById("endDay2").value);
-  duration = document.getElementById("duration2").value;
-  percentComplete = +document.getElementById("percentComplete2").value;
-
+  //Get all text data.
+  if(document.getElementById("taskName").value == "")
+    taskName = null;
+  else
+    taskName = document.getElementById("taskName").value;
+  if(document.getElementById("startDay").value == "")
+    startDay = null;
+  else
+    startDay = new Date(document.getElementById("startDay").value);
+  if(document.getElementById("endDay").value == "")
+    endDay = null;
+  else
+    endDay = new Date(document.getElementById("endDay").value);
+  if(document.getElementById("duration").value == "")
+    duration = null;
+  else
+    duration = document.getElementById("duration").value;
+  if(document.getElementById("percentComplete").value == "")
+    percentComplete = 0;
+  else
+    percentComplete = +document.getElementById("percentComplete").value;
+  if(document.getElementById("dependencies").value == "")
+    dependencies = null;
+  else
+    dependencies = document.getElementById("dependencies").value;
+  //TODO: Check data table if there any task has same name.
 
   data.addRow([taskName, taskName,
-  startDay, endDay, daysToMilliseconds(duration), percentComplete, null]);
+  startDay, endDay, daysToMilliseconds(duration), percentComplete, dependencies]);
   Test_Draw();
 }
 
@@ -125,11 +176,28 @@ function DownloadData()
 }
 
 function downloadObjectAsJson(exportObj, exportName){
-    var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
-    var downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href",     dataStr);
-    downloadAnchorNode.setAttribute("download", exportName + ".json");
-    document.body.appendChild(downloadAnchorNode); // required for firefox
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-  }
+  var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj));
+  var downloadAnchorNode = document.createElement('a');
+  downloadAnchorNode.setAttribute("href",     dataStr);
+  downloadAnchorNode.setAttribute("download", exportName + ".json");
+  document.body.appendChild(downloadAnchorNode); // required for firefox
+  downloadAnchorNode.click();
+  downloadAnchorNode.remove();
+}
+
+function importData(){
+  var jsonData = $.ajax({
+      url: "../Handler/GetData.ashx",
+      dataType: "json",
+      async: false,
+      data: {ct:''}
+  }).responseText;
+
+  wrapper = new google.visualization.ChartWrapper({
+      chartType: 'Gantt',
+      dataTable: jsonData,
+      options: {'height': '275'},
+      containerId: 'visualization'
+  });
+  wrapper.draw();
+}

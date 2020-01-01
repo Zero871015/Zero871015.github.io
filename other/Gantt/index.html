@@ -42,6 +42,8 @@
 			<label class="col-sm-1 col-form-label col-form-label-sm" for="inlineFormInputName2">Percent Complete</label>
 			<input type="number"  min="0" max="100" class="col-sm-1 form-control form-control-sm mb-1 mr-sm-1" id="percentComplete" placeholder="0%">
 
+			<input type="text" class="col-sm-1 form-control form-control-sm mb-1 mr-sm-1" id="dependencies" placeholder="">
+
 			<button type="button" class="btn btn-primary btn-sm mb-1" onclick="AddTask()">Add</button>
 
 		</form>	
@@ -73,8 +75,10 @@
 
 			<label class="col-sm-1 col-form-label col-form-label-sm" for="inlineFormInputName2">Percent Complete</label>
 			<input type="number"  min="0" max="100" class="col-sm-1 form-control form-control-sm mb-1 mr-sm-1" id="percentComplete2" placeholder="0%">
+			<input type="text" class="col-sm-1 form-control form-control-sm mb-1 mr-sm-1" id="dependencies2" placeholder="">
 
 		 	<button type="button" class="btn btn-primary btn-sm mb-1" onclick="ModifyTask()">Save</button>
+		 	<button type="button" class="btn btn-primary btn-sm mb-1" onclick="DeleteTask()">Delete</button>
 		</form>	
 		<p>	
 	</div>
