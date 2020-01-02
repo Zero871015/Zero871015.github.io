@@ -1,3 +1,6 @@
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.4.1.js';
+document.getElementsByTagName('head')[0].appendChild(script); 
 var wrapper;
 var data;
 var seName;
@@ -69,7 +72,7 @@ function AddTask()
   else
   	endDay = new Date(document.getElementById("endDay").value);
   if(document.getElementById("duration").value == "")
-    duration = null;
+    duration = 1;
   else
   	duration = document.getElementById("duration").value;
   if(document.getElementById("percentComplete").value == "")
@@ -145,42 +148,46 @@ function ModifyTask()
 {
   DeleteTask();
   data = wrapper.getDataTable();
+  if(seName!= "")
+  {
+		 //Get all text data.
+	  if(document.getElementById("taskName2").value == "")
+		taskName = null;
+	  else
+		taskName = document.getElementById("taskName2").value;
+	  if(document.getElementById("startDay2").value == "")
+		startDay = null;
+	  else
+		startDay = new Date(document.getElementById("startDay2").value);
+	  if(document.getElementById("endDay2").value == "")
+		endDay = null;
+	  else
+		endDay = new Date(document.getElementById("endDay2").value);
+	  if(document.getElementById("duration2").value == "")
+		duration = 1;
+	  else
+		duration = document.getElementById("duration2").value;
+	  if(document.getElementById("percentComplete2").value == "")
+		percentComplete = 0;
+	  else
+		percentComplete = +document.getElementById("percentComplete2").value;
+	  if(document.getElementById("dependencies2").value == "")
+		dependencies = null;
+	  else
+		dependencies = document.getElementById("dependencies2").value;
+	  //TODO: Check data table if there any task has same name.
 
-  //Get all text data.
-  if(document.getElementById("taskName2").value == "")
-    taskName = null;
-  else
-    taskName = document.getElementById("taskName2").value;
-  if(document.getElementById("startDay2").value == "")
-    startDay = null;
-  else
-    startDay = new Date(document.getElementById("startDay2").value);
-  if(document.getElementById("endDay2").value == "")
-    endDay = null;
-  else
-    endDay = new Date(document.getElementById("endDay2").value);
-  if(document.getElementById("duration2").value == "")
-    duration = null;
-  else
-    duration = document.getElementById("duration2").value;
-  if(document.getElementById("percentComplete2").value == "")
-    percentComplete = 0;
-  else
-    percentComplete = +document.getElementById("percentComplete2").value;
-  if(document.getElementById("dependencies2").value == "")
-    dependencies = null;
-  else
-    dependencies = document.getElementById("dependencies2").value;
-  //TODO: Check data table if there any task has same name.
+	  data.addRow([taskName, taskName,
+	  startDay, endDay, daysToMilliseconds(duration), percentComplete, dependencies]); 
+  }
 
-  data.addRow([taskName, taskName,
-  startDay, endDay, daysToMilliseconds(duration), percentComplete, dependencies]);
+  
   Test_Draw();
 }
 
 function DownloadData()
 {
-  console.log(data.toJSON());
+  //console.log(data.toJSON());
   downloadObjectAsJson(data.toJSON(),"test");
 }
 
@@ -194,19 +201,48 @@ function downloadObjectAsJson(exportObj, exportName){
   downloadAnchorNode.remove();
 }
 
-function importData(){
-  var jsonData = $.ajax({
-      url: "../Handler/GetData.ashx",
-      dataType: "json",
-      async: false,
-      data: {ct:''}
-  }).responseText;
-
-  wrapper = new google.visualization.ChartWrapper({
-      chartType: 'Gantt',
-      dataTable: jsonData,
-      options: {'height': '275'},
-      containerId: 'visualization'
-  });
-  wrapper.draw();
+function readTextFile(url)
+{
+	var allText;
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", url, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                allText = rawFile.responseText;
+              //  alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+	return allText;
 }
+
+function importData(url){
+	console.log(document.getElementById("importname").files[0].name);
+	var allText = readTextFile(url);
+	//console.log(allText);
+	allText = JSON.parse(allText);
+	//console.log(allText);
+	
+    wrapper.J = new google.visualization.DataTable(allText);
+	//console.log(wrapper);
+  Test_Draw();
+}
+
+
+function getObjectURL(file) {  
+     var url = null;  
+     if (window.createObjcectURL != undefined) {  
+         url = window.createOjcectURL(file);  
+     } else if (window.URL != undefined) {  
+         url = window.URL.createObjectURL(file);  
+     } else if (window.webkitURL != undefined) {  
+         url = window.webkitURL.createObjectURL(file);  
+     }  
+	 console.log(url);
+	 importData(url);
+ }
