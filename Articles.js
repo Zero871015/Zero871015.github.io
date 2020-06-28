@@ -1,5 +1,12 @@
 var articles = [
 	{
+		year		: 2020,
+		date 		: "0616",
+		title       : "Compiler Note",
+		title_HTML	: "https://hackmd.io/@Zero871015/compiler",
+		text		: "編譯器課程筆記，未來考慮補上編譯器實作教學</br>\
+					Note of compiler. Consider implementing compiler with lex/yacc in the future."
+	},{
 		year		: 2019,
 		date 		: "1110",
 		title       : "OS Note",
