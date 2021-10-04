@@ -1,5 +1,89 @@
 var articles = [
 	{
+		year		: 2021,
+		date 		: "1001",
+		title       : "Hackme CTF write-up",
+		title_HTML	: "https://hackmd.io/@Zero871015/Hackme",
+		text		: "CTF 練習網 hackme 的解題紀錄。</br>\
+					Write-ups for Hackme CTF."
+	},{
+		year		: 2021,
+		date 		: "0926",
+		title       : "Identifying Mirai-Exploitable Vulnerabilities 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/IdentifyingMirai",
+		text		: "論文閱讀筆記，提取各種 Firmware 資訊判斷是否容易被 Mirai 攻擊。</br>\
+					Paper note. Extract infomation from firmware to identify the sensitivity of Mirai."
+	},{
+		year		: 2021,
+		date 		: "0909",
+		title       : "uEmu 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/uEmu",
+		text		: "論文閱讀筆記，uEmu 是一個利用動態符號執行來模擬 MCU 的技術。</br>\
+					Paper note. uEmu is a technology to emulate MCU via concolic execution."
+	},{
+		year		: 2021,
+		date 		: "0907",
+		title       : "Hybrid Detection 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/HybridDetection",
+		text		: "論文閱讀筆記，提出一種混和動靜態的漏洞檢測法。</br>\
+					Paper note. Hybrid detection for IoT vulnerabilities."
+	},{
+		year		: 2021,
+		date 		: "0825",
+		title       : "FIRMNANO 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/FIRMNANO",
+		text		: "論文閱讀筆記，FIRMNANO 是一個用於微控制器模糊測試的框架。</br>\
+					Paper note. FIRMNANO is a fuzzing framework for MCU."
+	},{
+		year		: 2021,
+		date 		: "0808",
+		title       : "Firmware Fuzzing 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/FirmwareFuzzing",
+		text		: "論文閱讀筆記，討論各種在 Firmware 上的 fuzzing 技術。</br>\
+					Paper note. Discuss the fuzzing tech for firmware."
+	},{
+		year		: 2021,
+		date 		: "0802",
+		title       : "CVE-2019–17664 研究探討",
+		title_HTML	: "https://zero871015.medium.com/cve-2019-17664-%E7%A0%94%E7%A9%B6%E6%8E%A2%E8%A8%8E-7b12fd0a03b8",
+		text		: "我 AIS3 的專題研究。</br>\
+					My project during AIS3."
+	},{
+		year		: 2021,
+		date 		: "0713",
+		title       : "Does Every Second Count? 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/Time-based-Sandboxes",
+		text		: "論文閱讀筆記，探討執行時間對沙盒的影響。</br>\
+					Paper note. Discuss the effect of execution time in sandboxes."
+	},{
+		year		: 2021,
+		date 		: "0608",
+		title       : "P2IM 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/P2IM",
+		text		: "論文閱讀筆記，P2IM 是一個用於模擬 MCU 設備的技術。</br>\
+					Paper note. P2IM is a technology to emulate MCU."
+	},{
+		year		: 2021,
+		date 		: "0603",
+		title       : "AIS3 pre-exam 2021 write-up",
+		title_HTML	: "https://hackmd.io/@Zero871015/AIS3_pre-exam_2021",
+		text		: "AIS3 事前測驗的部分 write-up</br>\
+					AIS3 pre-exam 2021 write-up (only part problems)."
+	},{
+		year		: 2021,
+		date 		: "0325",
+		title       : "關於找指導教授這事",
+		title_HTML	: "https://zero871015.medium.com/%E9%97%9C%E6%96%BC%E6%89%BE%E6%8C%87%E5%B0%8E%E6%95%99%E6%8E%88%E9%80%99%E4%BA%8B-506c2277bb87",
+		text		: "碩士指導教授指南</br>\
+					Guide of  finding advisor for graduate student."
+	},{
+		year		: 2021,
+		date 		: "0125",
+		title       : "FirmAE 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/FirmAE",
+		text		: "論文閱讀筆記，FirmAE 是一個自動化模擬 Firmware 的系統。</br>\
+					Paper note. FirmAE is a system to automatic emulate firmware."
+	},{
 		year		: 2020,
 		date 		: "1027",
 		title       : "CTF-RSA",
