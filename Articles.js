@@ -1,5 +1,75 @@
 var articles = [
 	{
+		year		: 2022,
+		date 		: "0612",
+		title       : "HEAPSTER 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/HEAPSTER",
+		text		: "論文閱讀筆記，HEAPSTER 是專門檢測單片韌體上關於 Heap 的漏洞。</br>\
+					Paper note. HEAPSTER is a system for analyzing heap for monolithic firmware images."
+	},{
+		year		: 2022,
+		date 		: "0502",
+		title       : "Vulnerability Detection for Linux IoT App with Symbolic Execution 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/SymbolicExecutionVulnerabilityDetection",
+		text		: "論文閱讀筆記，提出一個基於符號執行的檢測方式，可用於輕量 IoT 應用程式。</br>\
+					Paper note. Propose a vulnerability detection algorithm via symbolic execution for Linux IoT Apps."
+	},{
+		year		: 2022,
+		date 		: "0323",
+		title       : "FirmFuzz 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/FirmFuzz",
+		text		: "論文閱讀筆記，FirmFuzz 是一個自動化檢測 IoT 韌體的系統。</br>\
+					Paper note. Firmware is a automatic analysis system for IoT firmware."
+	},{
+		year		: 2022,
+		date 		: "0220",
+		title       : "Feedback-Enhanced Fuzzing for Linux-based IoT Firmware 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/FeedbackEnhancedFuzzing",
+		text		: "論文閱讀筆記，提出一個回饋增強型的 Fuzzing 可用於 Linux IoT 韌體。</br>\
+					Paper note. Propose a feedback-enhanced fuzzing scheme for Linux-based firmwares."
+	},{
+		year		: 2022,
+		date 		: "0207",
+		title       : "argXtract 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/argXtract",
+		text		: "論文閱讀筆記，argXtract 是一個對 Cortex-M 檔案自動化靜態分析的框架。</br>\
+					Paper note. argXtract is a automatic static analysis framework for Cortex-M binary."
+	},{
+		year		: 2022,
+		date 		: "0116",
+		title       : "Fuzzware 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/Fuzzware",
+		text		: "論文閱讀筆記，Fuzzware 是利用符號執行提高 IoT 模擬和 Fuzzing 效率的系統。</br>\
+					Paper note. Fuzzware is a effective firmware emulation and fuzzing system which using symbolic execution."
+	},{
+		year		: 2022,
+		date 		: "0114",
+		title       : "Branch Predictor based on Global History 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/BranchPredictor",
+		text		: "論文閱讀筆記，設計基於 Global History 的高效分支預測器。</br>\
+					Paper note. Design a high performance branch predictor based on global history."
+	},{
+		year		: 2021,
+		date 		: "1207",
+		title       : "Oasis 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/Oasis",
+		text		: "論文閱讀筆記，提出名為 Oasis 的 IoT 系統模擬架構。</br>\
+					Paper note. Oasis can emulate IoT devices via dockers."
+	},{
+		year		: 2021,
+		date 		: "1122",
+		title       : "DIFT Architecture to RISC-V Core 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/DIFTforRISCV",
+		text		: "論文閱讀筆記，設計一種支援 DIFT 的 RISC-V 架構。</br>\
+					Paper note. Design a DIFT architecture on RISC-V."
+	},{
+		year		: 2021,
+		date 		: "1031",
+		title       : "Greybox Fuzzing for Linux-based IoT Programs 論文筆記",
+		title_HTML	: "https://hackmd.io/@Zero871015/GreyboxFuzzing",
+		text		: "論文閱讀筆記，提出一種可用於 Linux-based 程式的灰箱模糊測試。</br>\
+					Paper note. Propose a greybox fuzzing test framework for Linux-based IoT Programs."
+	},{
 		year		: 2021,
 		date 		: "1001",
 		title       : "Hackme CTF write-up",
@@ -183,6 +253,11 @@ var articles = [
 					My data structure note. I did't expect that it will be so popular."
 	},
 ];
+
+function MakePapers()
+{
+
+}
 
 function MakeList()
 {
